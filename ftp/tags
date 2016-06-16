@@ -1,0 +1,224 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.6	//
+CCP_ERROR	ftp.h	97;"	d
+CCP_OK	ftp.h	96;"	d
+DEBUG	lib.c	36;"	d	file:
+DIR_MAXDEPTH	ftp.h	93;"	d
+FTPMAXBSIZE	ftp.h	47;"	d
+LOGFACILITY	main.c	51;"	d	file:
+LOGFACILITY	main.c	53;"	d	file:
+MODE_PASSIVE	ftp.h	105;"	d
+MODE_PORT	ftp.h	104;"	d
+OP_GET	ftp.h	107;"	d
+OP_PUT	ftp.h	108;"	d
+PORT_CLOSED	ftp.h	102;"	d
+PORT_CONNECTED	ftp.h	101;"	d
+PORT_LISTEN	ftp.h	100;"	d
+TYPE_ASC	ftp.h	110;"	d
+TYPE_BIN	ftp.h	111;"	d
+_FTP_INCLUDED	ftp.h	30;"	d
+_IP_LIB_INCLUDED	ip-lib.h	26;"	d
+_LIB_INCLUDED	lib.h	25;"	d
+__TOOLS_H__	tools.h	2;"	d
+_bio	ftp.h	/^typedef struct _bio$/;"	s
+_config	ftp.h	/^typedef struct _config$/;"	s
+_dtc	ftp.h	/^typedef struct _dtc$/;"	s
+_ftp	ftp.h	/^typedef struct _ftp$/;"	s
+_ftpcmd	ftp.c	/^typedef struct _ftpcmd {$/;"	s	file:
+_getipnum	ftp.c	/^char *_getipnum(char *line, char **here, char *ip, int size)$/;"	f
+_getport	ftp.c	/^unsigned long _getport(char *line, char **here)$/;"	f
+_init_lower	lib.c	/^static int _init_lower()$/;"	f	file:
+_init_upper	lib.c	/^static int _init_upper()$/;"	f	file:
+_port	ftp.h	/^typedef struct _port$/;"	s
+acceptloop	daemon.c	/^int acceptloop(int sock)$/;"	f
+acp	ftp.h	/^  char acp[200];$/;"	m	struct:_config
+active	ftp.h	/^  int active;$/;"	m	struct:_dtc
+alarm_handler	ip-lib.c	/^static void alarm_handler()$/;"	f	file:
+allocate	lib.c	/^void *allocate(size_t size)$/;"	f
+allow_anyremote	ftp.h	/^  int allow_anyremote;$/;"	m	struct:_config
+allow_blanks	ftp.h	/^  int allow_blanks;$/;"	m	struct:_config
+allow_passwdblanks	ftp.h	/^  int allow_passwdblanks;$/;"	m	struct:_config
+audit_ipnum	ftp.h	/^  char audit_ipnum[32];$/;"	m	struct:_config
+audit_ipnum	ftp.h	/^  char audit_ipnum[32];$/;"	m	struct:_ftp
+backup_fd	ftp.h	/^  int backup_fd;$/;"	m	struct:_ftp
+backup_fn	ftp.h	/^  char backup_fn[256];$/;"	m	struct:_ftp
+backup_size	ftp.h	/^  int backup_size;$/;"	m	struct:_config
+bind_to_port	ip-lib.c	/^int bind_to_port(char *interface, unsigned int port)$/;"	f
+bindport	main.c	/^int	bindport =		0;$/;"	v
+bio_t	ftp.h	/^} bio_t;$/;"	t	typeref:struct:_bio
+bsize	ftp.h	/^  int bsize;$/;"	m	struct:_config
+buffer	ftp.h	/^  char buffer[512];$/;"	m	struct:_bio
+bytes	ftp.h	/^  unsigned long bytes;$/;"	m	struct:_dtc
+cbuf	ftp.h	/^  bio_t cbuf, sbuf;$/;"	m	struct:_ftp
+ccp	ftp.h	/^  char ccp[200];$/;"	m	struct:_config
+ccpcoll	ftp.h	/^  int ccpcoll;$/;"	m	struct:_ftp
+cfd	ftp.h	/^    int cfd;			\/* Datenverbindung zum Client *\/$/;"	m	struct:_ftp::__anon3
+cfgets	ftp.c	/^char *cfgets(ftp_t *x, char *line, int size)$/;"	f
+cfputs	ftp.c	/^int cfputs(ftp_t *x, char *line)$/;"	f
+ch	ftp.h	/^  dtc_t ch;$/;"	m	struct:_ftp
+client	ftp.h	/^  char client[200];$/;"	m	struct:_ftp
+client	ftp.h	/^  port_t client;$/;"	m	struct:_dtc
+client_ip	ftp.h	/^  char client_ip[80];$/;"	m	struct:_ftp
+client_macaddr	ftp.h	/^  char client_macaddr[64];$/;"	m	struct:_ftp
+client_port	ftp.h	/^  unsigned int client_port;$/;"	m	struct:_ftp
+clientport	daemon.c	/^int clientport;$/;"	v
+close_ch	ftp.c	/^int close_ch(ftp_t *x, dtc_t *ch)$/;"	f
+cmd_cnt	ftp.h	/^  int cmd_cnt;$/;"	m	struct:_ftp
+cmdtab	ftp.c	/^ftpcmd_t cmdtab[] = {$/;"	v
+code_convert	iconv.c	/^code_convert(char *from_charset, char *to_charset, char *inbuf, size_t inlen, char *outbuf,$/;"	f
+command	ftp.h	/^  char command[20];		\/* Fuer syslog Meldungen *\/$/;"	m	struct:_dtc
+commands	ftp.h	/^  int commands;$/;"	m	struct:_ftp
+config	ftp.h	/^  config_t *config;$/;"	m	struct:_ftp
+config_t	ftp.h	/^} config_t;$/;"	t	typeref:struct:_config
+configfile	ftp.h	/^  char configfile[200];$/;"	m	struct:_config
+copy_string	lib.c	/^char *copy_string(char *y, char *x, int len)$/;"	f
+ctp	ftp.h	/^  char ctp[200];$/;"	m	struct:_config
+cwd	ftp.h	/^  char cwd[200];$/;"	m	struct:_ftp
+daemonmode	main.c	/^int	daemonmode =		0;$/;"	v
+datain	ftp.h	/^  unsigned long datain, dataout;$/;"	m	struct:_ftp
+dataout	ftp.h	/^  unsigned long datain, dataout;$/;"	m	struct:_ftp
+dataport	ftp.h	/^  unsigned int dataport;$/;"	m	struct:_config
+debug	main.c	/^int	debug =			0;$/;"	v
+dofeat	ftp.c	/^int dofeat(ftp_t *x)$/;"	f
+dologin	ftp.c	/^int dologin(ftp_t *x)$/;"	f
+dopasv	ftp.c	/^int dopasv(ftp_t *x, char *command, char *par)$/;"	f
+doport	ftp.c	/^int doport(ftp_t *x, char *command, char *par)$/;"	f
+doquit	ftp.c	/^int doquit(ftp_t *x)$/;"	f
+dtc_t	ftp.h	/^} dtc_t;$/;"	t	typeref:struct:_dtc
+extralog	main.c	/^int	extralog =		0;$/;"	v
+fd	ftp.h	/^  } fd;$/;"	m	struct:_ftp	typeref:struct:_ftp::__anon3
+fdset	ftp.h	/^    fd_set fdset;$/;"	m	struct:_ftp::__anon3
+filename	ftp.h	/^  char filename[200];$/;"	m	struct:_dtc
+filepath	ftp.h	/^  char filepath[200];$/;"	m	struct:_ftp
+ftp_t	ftp.h	/^} ftp_t;$/;"	t	typeref:struct:_ftp
+ftpcmd_t	ftp.c	/^    } ftpcmd_t;$/;"	t	typeref:struct:_ftpcmd	file:
+g2u	iconv.c	/^g2u(char *inbuf)$/;"	f
+get_client_info	ftp.c	/^int get_client_info(ftp_t *x, int pfd)$/;"	f
+get_file_size	iconv.c	/^get_file_size(const char *filename)$/;"	f
+get_ftpdir	ftp.c	/^int get_ftpdir(ftp_t *x)$/;"	f
+get_ftppath	ftp.c	/^int get_ftppath(ftp_t *x, char *path)$/;"	f
+get_interface_info	ftp.c	/^unsigned get_interface_info(int pfd, char *ip, int max)$/;"	f
+get_number	config.c	/^static unsigned int get_number(char **from, char *par, char *filename, int lineno)$/;"	f	file:
+get_parameter	config.c	/^static char *get_parameter(char **from, char *par, char *value, int size,$/;"	f	file:
+get_port	ip-lib.c	/^unsigned int get_port(char *server, unsigned int def_port)$/;"	f
+get_quoted	lib.c	/^char *get_quoted(char **from, int delim, char *to, int max)$/;"	f
+get_word	lib.c	/^char *get_word(char **from, char *to, int maxlen)$/;"	f
+get_yesno	config.c	/^static int get_yesno(char **from, char *par, char *filename, int lineno)$/;"	f	file:
+getc_fd	ftp.c	/^int getc_fd(ftp_t *x, int fd)$/;"	f
+getcmd	ftp.c	/^ftpcmd_t *getcmd(char *name)$/;"	f
+getportnum	ip-lib.c	/^unsigned int getportnum(char *name)$/;"	f
+getvarname	ftp.c	/^static char *getvarname(char **here, char *var, int size)$/;"	f	file:
+here	ftp.h	/^  int here, len;$/;"	m	struct:_bio
+home	ftp.h	/^  char home[200];$/;"	m	struct:_ftp
+inside	ftp.h	/^  port_t inside;$/;"	m	struct:_dtc
+interface	ftp.h	/^  char interface[80];$/;"	m	struct:_ftp
+ipnum	ftp.h	/^    char ipnum[80];$/;"	m	struct:_ftp::__anon2
+ipnum	ftp.h	/^  char ipnum[80];$/;"	m	struct:_port
+ipv6	ftp.h	/^  int ipv6;$/;"	m	struct:_ftp
+islowercase	lib.c	/^int islowercase(unsigned int c)$/;"	f
+isock	ftp.h	/^  int isock;$/;"	m	struct:_dtc
+ispath	ftp.c	/^    int		par, ispath, useccp;$/;"	m	struct:_ftpcmd	file:
+isuppercase	lib.c	/^int isuppercase(unsigned int c)$/;"	f
+len	ftp.h	/^  int here, len;$/;"	m	struct:_bio
+local	ftp.h	/^  } local;$/;"	m	struct:_ftp	typeref:struct:_ftp::__anon1
+log	ftp.c	/^    int		log;$/;"	m	struct:_ftpcmd	file:
+login_commit	ftp.h	/^  int login_commit;$/;"	m	struct:_ftp
+logusername	ftp.h	/^  char logusername[100];$/;"	m	struct:_ftp
+lower	lib.c	/^static unsigned int lower[256], upper[256];$/;"	v	file:
+lowercase	lib.c	/^unsigned int lowercase(unsigned int c)$/;"	f
+mac_device	ftp.h	/^  char mac_device[8];$/;"	m	struct:_config
+mac_record	ftp.h	/^  int mac_record;$/;"	m	struct:_config
+main	main.c	/^int main(int argc, char *argv[], char *envp[])$/;"	f
+max	ftp.h	/^    int max;$/;"	m	struct:_ftp::__anon3
+missing_arg	main.c	/^void missing_arg(int c, char *string)$/;"	f
+mode	ftp.h	/^  int mode;			\/* PORT oder PASV *\/$/;"	m	struct:_dtc
+monitor	ftp.h	/^  int monitor;$/;"	m	struct:_config
+mysql_database	ftp.h	/^  char mysql_database[32];$/;"	m	struct:_config
+mysql_ipnum	ftp.h	/^  char mysql_ipnum[32];$/;"	m	struct:_config
+mysql_password	ftp.h	/^  char mysql_password[32];$/;"	m	struct:_config
+mysql_username	ftp.h	/^  char mysql_username[32];$/;"	m	struct:_config
+name	ftp.c	/^    char	name[20];$/;"	m	struct:_ftpcmd	file:
+name	ftp.h	/^    char name[80];$/;"	m	struct:_ftp::__anon2
+noctrl	lib.c	/^char *noctrl(char *buffer)$/;"	f
+numeric_only	ftp.h	/^  int numeric_only;$/;"	m	struct:_config
+openip	ip-lib.c	/^int openip(char *host, unsigned int port, char *srcip, unsigned int srcport)$/;"	f
+openip6	ip-lib.c	/^int openip6(char *host, unsigned int port, char *srcip, unsigned int srcport)$/;"	f
+operation	ftp.h	/^  int operation;		\/* GET oder PUT *\/$/;"	m	struct:_dtc
+osock	ftp.h	/^  int osock;$/;"	m	struct:_dtc
+other	ftp.h	/^  int other;$/;"	m	struct:_dtc
+outside	ftp.h	/^  port_t outside;$/;"	m	struct:_dtc
+par	ftp.c	/^    int		par, ispath, useccp;$/;"	m	struct:_ftpcmd	file:
+password	ftp.h	/^    char password[80];$/;"	m	struct:_ftp::__anon1
+password	ftp.h	/^  char password[200];$/;"	m	struct:_ftp
+port	ftp.h	/^    unsigned int port;$/;"	m	struct:_ftp::__anon2
+port	ftp.h	/^  unsigned int port;$/;"	m	struct:_ftp
+port	ftp.h	/^  unsigned int port;$/;"	m	struct:_port
+port_t	ftp.h	/^} port_t;$/;"	t	typeref:struct:_port
+printconfig	config.c	/^int printconfig(config_t *config)$/;"	f
+printnum	config.c	243;"	d	file:
+printstring	config.c	244;"	d	file:
+printyesno	config.c	242;"	d	file:
+progname	main.c	/^char	progname[80] =		"";$/;"	v
+program	main.c	/^char	*program =		"";$/;"	v
+proxy_request	ftp.c	/^int proxy_request(config_t *config)$/;"	f
+radius_username	ftp.h	/^  char radius_username[64];$/;"	m	struct:_ftp
+readconfig	config.c	/^int readconfig(config_t *config, char *filename, char *section)$/;"	f
+readline_fd	ftp.c	/^char *readline_fd(ftp_t *x, int fd, char *line, int size)$/;"	f
+reallocate	lib.c	/^void *reallocate(void *p, size_t size)$/;"	f
+record_command	iconv.c	/^record_command(ftp_t *x, const char *command, const char *parameter, int rc, int bytes)$/;"	f
+record_endtime	iconv.c	/^record_endtime(ftp_t *x)$/;"	f
+report	ftp.h	/^  int report;$/;"	m	struct:_ftp
+resp	ftp.c	/^    int		resp;$/;"	m	struct:_ftpcmd	file:
+run_acp	ftp.c	/^int run_acp(ftp_t *x)$/;"	f
+run_ccp	ftp.c	/^int run_ccp(ftp_t *x, char *cmd, char *par)$/;"	f
+run_ctp	ftp.c	/^int run_ctp(ftp_t *x)$/;"	f
+sbuf	ftp.h	/^  bio_t cbuf, sbuf;$/;"	m	struct:_ftp
+seen150	ftp.h	/^  int seen150;$/;"	m	struct:_dtc
+selectserver	ftp.h	/^  int selectserver;$/;"	m	struct:_config
+server	ftp.h	/^    int server;			\/* Kontrollverbindung zum Server *\/$/;"	m	struct:_ftp::__anon3
+server	ftp.h	/^  char server[200];$/;"	m	struct:_config
+server	ftp.h	/^  port_t server;$/;"	m	struct:_dtc
+server	ftp.h	/^  } server;$/;"	m	struct:_ftp	typeref:struct:_ftp::__anon2
+server_macaddr	ftp.h	/^  char server_macaddr[64];$/;"	m	struct:_ftp
+server_port	ftp.h	/^  unsigned int server_port;$/;"	m	struct:_ftp
+serverlist	ftp.h	/^  char *serverlist;$/;"	m	struct:_config
+session	ftp.h	/^  char session[80];$/;"	m	struct:_ftp
+set_signals	ftp.c	/^int set_signals(void)$/;"	f
+set_variables	ftp.c	/^int set_variables(ftp_t *x)$/;"	f
+setvar	ftp.c	/^int setvar(ftp_t *x, char *var, char *value)$/;"	f
+sfd	ftp.h	/^    int sfd;			\/* Datenverbindung zum Server *\/$/;"	m	struct:_ftp::__anon3
+sfgets	ftp.c	/^char *sfgets(ftp_t *x, char *line, int size)$/;"	f
+sfputc	ftp.c	/^int sfputc(ftp_t *x, char *command, char *parameter, char *line, int size, char **here)$/;"	f
+sfputs	ftp.c	/^int sfputs(ftp_t *x, char *format, ...)$/;"	f
+showconfig	main.c	/^int	showconfig =		0;$/;"	v
+sid	ftp.h	/^  int sid;\/\/MySQL last insert id$/;"	m	struct:_ftp
+signal_handler	ftp.c	/^void signal_handler(int sig)$/;"	f
+skip_ws	lib.c	/^char *skip_ws(char *string)$/;"	f
+sourceip	ftp.h	/^  char sourceip[200];$/;"	m	struct:_config
+split	lib.c	/^int split(char *line, char *ptr[], int sep, int max)$/;"	f
+sql_conn	ftp.h	/^  MYSQL *sql_conn;$/;"	m	struct:_ftp
+standalone	ftp.h	/^  int standalone;$/;"	m	struct:_config
+started	ftp.h	/^  unsigned long started;	\/* Timestamp for xferlog *\/$/;"	m	struct:_dtc
+state	ftp.h	/^  int state;			\/* LISTEN, CONNECTED, CLOSED *\/$/;"	m	struct:_dtc
+str_time	iconv.c	/^str_time(time_t caltime, const char *fmt)$/;"	f
+strlwr	lib.c	/^char *strlwr(char *string)$/;"	f
+strpcmp	lib.c	/^int strpcmp(char *string, char *pattern)$/;"	f
+strupr	lib.c	/^char *strupr(char *string)$/;"	f
+timeout	ftp.h	/^  int timeout;$/;"	m	struct:_config
+timeout	ftp.h	/^  int timeout;$/;"	m	struct:_ftp
+type	ftp.h	/^  int type;			\/* Transfer type for xferlog *\/$/;"	m	struct:_dtc
+update_mysql	iconv.c	/^update_mysql(ftp_t *x, const char *query)$/;"	f
+upper	lib.c	/^static unsigned int lower[256], upper[256];$/;"	v	file:
+uppercase	lib.c	/^unsigned int uppercase(unsigned int c)$/;"	f
+use_last_at	ftp.h	/^  int use_last_at;$/;"	m	struct:_config
+use_radius_auth	ftp.h	/^  int use_radius_auth;$/;"	m	struct:_config
+useccp	ftp.c	/^    int		par, ispath, useccp;$/;"	m	struct:_ftpcmd	file:
+username	ftp.h	/^    char username[80];$/;"	m	struct:_ftp::__anon1
+username	ftp.h	/^  char username[200];$/;"	m	struct:_ftp
+varname	ftp.h	/^  char varname[80];$/;"	m	struct:_config
+xferlog	ftp.h	/^  char xferlog[200];$/;"	m	struct:_config
+xlfp	ftp.h	/^  FILE *xlfp;$/;"	m	struct:_ftp

@@ -1,0 +1,228 @@
+# $Id: Makefile.in,v 1.309 2010/03/13 21:41:34 djm Exp $
+
+# uncomment if you run a non bourne compatable shell. Ie. csh
+#SHELL = @SH@
+
+AUTORECONF=autoreconf
+
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+bindir=@bindir@
+sbindir=@sbindir@
+libexecdir=@libexecdir@
+datadir=@datadir@
+datarootdir=@datarootdir@
+mandir=@mandir@
+mansubdir=@mansubdir@
+sysconfdir=@sysconfdir@
+piddir=@piddir@
+srcdir=@srcdir@
+top_srcdir=@top_srcdir@
+logdir=@logdir@
+
+DESTDIR=
+VPATH=@srcdir@
+#SSH_PROGRAM=@bindir@/ssh
+#ASKPASS_PROGRAM=$(libexecdir)/ssh-askpass
+#SFTP_SERVER=$(libexecdir)/sftp-server
+#SSH_KEYSIGN=$(libexecdir)/ssh-keysign
+#SSH_PKCS11_HELPER=$(libexecdir)/ssh-pkcs11-helper
+#RAND_HELPER=$(libexecdir)/ssh-rand-helper
+#PRIVSEP_PATH=@PRIVSEP_PATH@
+#SSH_PRIVSEP_USER=@SSH_PRIVSEP_USER@
+STRIP_OPT=@STRIP_OPT@
+
+PATHS= -DSSHDIR=\"$(sysconfdir)\" \
+	-D_PATH_SSH_PIDDIR=\"$(piddir)\" \
+	-D_PATH_SSH_LOGDIR=\"$(logdir)\"
+#	-D_PATH_SSH_PROGRAM=\"$(SSH_PROGRAM)\" \
+#	-D_PATH_SSH_ASKPASS_DEFAULT=\"$(ASKPASS_PROGRAM)\" \
+#	-D_PATH_SFTP_SERVER=\"$(SFTP_SERVER)\" \
+#	-D_PATH_SSH_KEY_SIGN=\"$(SSH_KEYSIGN)\" \
+#	-D_PATH_SSH_PKCS11_HELPER=\"$(SSH_PKCS11_HELPER)\" \
+#	-D_PATH_SSH_PIDDIR=\"$(piddir)\" \
+#	-D_PATH_PRIVSEP_CHROOT_DIR=\"$(PRIVSEP_PATH)\" \
+#	-DSSH_RAND_HELPER=\"$(RAND_HELPER)\"
+
+CC=@CC@
+LD=@LD@
+CFLAGS=@CFLAGS@
+CPPFLAGS=-I. -I$(srcdir) @CPPFLAGS@ $(PATHS) @DEFS@
+LIBS=@LIBS@
+SSHDLIBS=@SSHDLIBS@
+LIBEDIT=@LIBEDIT@
+AR=@AR@
+AWK=@AWK@
+RANLIB=@RANLIB@
+INSTALL=@INSTALL@
+PERL=@PERL@
+SED=@SED@
+ENT=@ENT@
+XAUTH_PATH=@XAUTH_PATH@
+LDFLAGS=-L. -Lopenbsd-compat/ @LDFLAGS@
+EXEEXT=@EXEEXT@
+
+INSTALL_SSH_PRNG_CMDS=@INSTALL_SSH_PRNG_CMDS@
+INSTALL_SSH_RAND_HELPER=@INSTALL_SSH_RAND_HELPER@
+
+TARGETS=mitm-ssh$(EXEEXT)
+
+LIBSSH_OBJS=acss.o authfd.o authfile.o bufaux.o bufbn.o buffer.o \
+	canohost.o channels.o cipher.o cipher-acss.o cipher-aes.o \
+	cipher-bf1.o cipher-ctr.o cipher-3des1.o cleanup.o \
+	compat.o compress.o crc32.o deattack.o fatal.o hostfile.o \
+	log.o match.o md-sha256.o moduli.o nchan.o packet.o \
+	readpass.o rsa.o ttymodes.o xmalloc.o addrmatch.o \
+	atomicio.o key.o dispatch.o kex.o mac.o uidswap.o uuencode.o misc.o \
+	monitor_fdpass.o rijndael.o ssh-dss.o ssh-rsa.o dh.o kexdh.o \
+	kexgex.o kexdhc.o kexgexc.o msg.o progressmeter.o dns.o \
+	entropy.o gss-genr.o umac.o jpake.o schnorr.o \
+	ssh-pkcs11.o
+
+#SSHOBJS= ssh.o readconf.o clientloop.o sshtty.o \
+#	sshconnect.o sshconnect1.o sshconnect2.o mux.o \
+#	roaming_common.o roaming_client.o
+
+MITMSSH_OBJS=sshd.o auth-rhosts.o auth-passwd.o auth-rsa.o auth-rh-rsa.o \
+	sshpty.o sshlogin.o servconf.o serverloop.o \
+	auth.o auth1.o auth2.o auth-options.o session.o \
+	auth-chall.o auth2-chall.o groupaccess.o \
+	auth-skey.o auth-bsdauth.o auth2-hostbased.o auth2-kbdint.o \
+	auth2-none.o auth2-passwd.o auth2-pubkey.o auth2-jpake.o \
+	monitor_mm.o monitor.o monitor_wrap.o kexdhs.o kexgexs.o \
+	auth-krb5.o \
+	auth2-gss.o gss-serv.o gss-serv-krb5.o \
+	loginrec.o auth-pam.o auth-shadow.o auth-sia.o md5crypt.o \
+	audit.o audit-bsm.o platform.o sftp-server.o sftp-common.o \
+	roaming_common.o roaming_serv.o\
+	sshconnect.o sshconnect1.o sshconnect2.o mitm-ssh.o readconf.o net.o
+
+MANPAGES	= 
+MANPAGES_IN	= 
+MANTYPE	= @MANTYPE@
+
+CONFIGFILES=mitm-ssh_config.out 
+CONFIGFILES_IN=mitm-ssh_config
+
+PATHSUBS	= \
+	-e 's|/etc/ssh/ssh_prng_cmds|$(sysconfdir)/ssh_prng_cmds|g' \
+#	-e 's|/etc/ssh/ssh_config|$(sysconfdir)/ssh_config|g' \
+	-e 's|/etc/ssh/ssh_known_hosts|$(sysconfdir)/ssh_known_hosts|g' \
+	-e 's|/etc/ssh/mitm_ssh_config|$(sysconfdir)/mitm-ssh_config|g' \
+#	-e 's|/usr/libexec|$(libexecdir)|g' \
+#	-e 's|/etc/shosts.equiv|$(sysconfdir)/shosts.equiv|g' \
+	-e 's|/etc/ssh/ssh_host_key|$(sysconfdir)/ssh_host_key|g' \
+	-e 's|/etc/ssh/ssh_host_dsa_key|$(sysconfdir)/ssh_host_dsa_key|g' \
+	-e 's|/etc/ssh/ssh_host_rsa_key|$(sysconfdir)/ssh_host_rsa_key|g' \
+	-e 's|/var/run/mitm-ssh.pid|$(piddir)/mitm-ssh.pid|g' \
+	-e 's|/etc/moduli|$(sysconfdir)/moduli|g' \
+	-e 's|/etc/ssh/moduli|$(sysconfdir)/moduli|g' \
+#	-e 's|/etc/ssh/sshrc|$(sysconfdir)/sshrc|g' \
+	-e 's|/usr/X11R6/bin/xauth|$(XAUTH_PATH)|g' \
+	-e 's|/var/empty|$(PRIVSEP_PATH)|g' \
+	-e 's|/usr/bin:/bin:/usr/sbin:/sbin|@user_path@|g'
+
+FIXPATHSCMD	= $(SED) $(PATHSUBS)
+
+all: $(CONFIGFILES) ssh_prng_cmds.out $(MANPAGES) $(TARGETS)
+
+$(LIBSSH_OBJS): Makefile.in config.h
+$(MITMSSH_OBJS): Makefile.in config.h
+#$(SSHDOBJS): Makefile.in config.h
+
+.c.o:
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c $<
+
+LIBCOMPAT=openbsd-compat/libopenbsd-compat.a
+$(LIBCOMPAT): always
+	(cd openbsd-compat && $(MAKE))
+always:
+
+libssh.a: $(LIBSSH_OBJS)
+	$(AR) rv $@ $(LIBSSH_OBJS)
+	$(RANLIB) $@
+
+mitm-ssh$(EXEEXT): libssh.a	$(LIBCOMPAT) $(MITMSSH_OBJS)
+	$(LD) -o $@ $(MITMSSH_OBJS) $(LDFLAGS) -lssh -lopenbsd-compat $(LIBWRAP) $(LIBPAM) $(LIBS)
+
+$(CONFIGFILES): $(CONFIGFILES_IN)
+	conffile=`echo $@ | sed 's/.out$$//'`; \
+	$(FIXPATHSCMD) $(srcdir)/$${conffile} > $@
+
+ssh_prng_cmds.out:	ssh_prng_cmds
+	if test ! -z "$(INSTALL_SSH_PRNG_CMDS)"; then \
+		$(PERL) $(srcdir)/fixprogs ssh_prng_cmds $(ENT); \
+	fi
+
+# fake rule to stop make trying to compile moduli.o into a binary "moduli.o"
+moduli:
+	echo
+
+clean:	
+	rm -f *.o *.a $(TARGETS) logintest config.cache config.log
+	rm -f *.out core
+	(cd openbsd-compat && $(MAKE) clean)
+
+catman-do:
+	@for f in $(MANPAGES_IN) ; do \
+		base=`echo $$f | sed 's/\..*$$//'` ; \
+		echo "$$f -> $$base.0" ; \
+		nroff -mandoc $$f | cat -v | sed -e 's/.\^H//g' \
+			>$$base.0 ; \
+	done
+
+install: $(CONFIGFILES) ssh_prng_cmds.out $(TARGETS) install-files host-key
+
+install-files: 
+	$(srcdir)/mkinstalldirs $(DESTDIR)$(sbindir)
+	(umask 022 ; $(srcdir)/mkinstalldirs $(DESTDIR)$(PRIVSEP_PATH))
+	$(INSTALL) -m 0755 $(STRIP_OPT) mitm-ssh $(DESTDIR)$(sbindir)/mitm-ssh
+	if test ! -z "$(INSTALL_SSH_RAND_HELPER)" ; then \
+		$(INSTALL) -m 0755 $(STRIP_OPT) ssh-rand-helper $(DESTDIR)$(libexecdir)/ssh-rand-helper ; \
+	fi
+	if [ ! -d $(DESTDIR)$(sysconfdir) ]; then \
+		$(srcdir)/mkinstalldirs $(DESTDIR)$(sysconfdir); \
+	fi
+	@if [ ! -f $(DESTDIR)$(sysconfdir)/sshd_config ]; then \
+		$(INSTALL) -m 644 mitm-ssh_config.out $(DESTDIR)$(sysconfdir)/mitm-ssh_config; \
+	else \
+		echo "$(DESTDIR)$(sysconfdir)/mitm-ssh_config already exists, install will not overwrite"; \
+	fi
+	@if [ -f ssh_prng_cmds -a ! -z "$(INSTALL_SSH_PRNG_CMDS)" ]; then \
+		if [ ! -f $(DESTDIR)$(sysconfdir)/ssh_prng_cmds ] ; then \
+			$(INSTALL) -m 644 ssh_prng_cmds.out $(DESTDIR)$(sysconfdir)/ssh_prng_cmds; \
+		else \
+			echo "$(DESTDIR)$(sysconfdir)/ssh_prng_cmds already exists, install will not overwrite"; \
+		fi ; \
+	fi
+	if [ ! -d $(DESTDIR)$(logdir) ]; then \
+		$(srcdir)/mkinstalldirs $(DESTDIR)$(logdir); \
+	fi
+
+host-key:
+	@if [ -z "$(DESTDIR)" ] ; then \
+		if [ -f "$(DESTDIR)$(sysconfdir)/mitm-ssh_host_key" ] ; then \
+			echo "$(DESTDIR)$(sysconfdir)/mitm-ssh_host_key already exists, skipping." ; \
+		else \
+			ssh-keygen -t rsa1 -f $(DESTDIR)$(sysconfdir)/mitm-ssh_host_key -N "" ; \
+		fi ; \
+		if [ -f $(DESTDIR)$(sysconfdir)/mitm-ssh_host_dsa_key ] ; then \
+			echo "$(DESTDIR)$(sysconfdir)/mitm-ssh_host_dsa_key already exists, skipping." ; \
+		else \
+			ssh-keygen -t dsa -f $(DESTDIR)$(sysconfdir)/mitm-ssh_host_dsa_key -N "" ; \
+		fi ; \
+		if [ -f $(DESTDIR)$(sysconfdir)/mitm-ssh_host_rsa_key ] ; then \
+			echo "$(DESTDIR)$(sysconfdir)/mitm-ssh_host_rsa_key already exists, skipping." ; \
+		else \
+			ssh-keygen -t rsa -f $(DESTDIR)$(sysconfdir)/mitm-ssh_host_rsa_key -N "" ; \
+		fi ; \
+	fi ;
+
+uninstall:
+	-rm -f $(DESTDIR)$(sbindir)/mitm-ssh$(EXEEXT)
+
+package: $(CONFIGFILES) ssh_prng_cmds.out $(MANPAGES) $(TARGETS)
+	if [ "@MAKE_PACKAGE_SUPPORTED@" = yes ]; then \
+		sh buildpkg.sh; \
+	fi
+

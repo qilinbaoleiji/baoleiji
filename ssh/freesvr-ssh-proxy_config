@@ -1,0 +1,75 @@
+# Port to listen on
+#Port 22
+
+# Protocols to accept
+Protocol 2,1
+
+# IPv4 address to listen on
+#ListenAddress 0.0.0.0
+
+# HostKey for protocol version 1
+#HostKey /etc/ssh/freesvr-ssh-proxy_host_key
+# HostKeys for protocol version 2
+#HostKey /etc/ssh/freesvr-ssh-proxy_host_rsa_key
+#HostKey /etc/ssh/freesvr-ssh-proxy_host_dsa_key
+
+# Where to store the PID file
+#PidFile /var/run/freesvr-ssh-proxy.pid
+
+# Where to store passwords
+#PasswdLogFile /var/log/freesvr-ssh-proxy/passwd.log
+
+# Where to store data sent from client to server
+#ClientToServerLogDir /var/log/freesvr-ssh-proxy
+
+# Where to store data sent from server to client
+#ServerToClientLogDir /var/log/freesvr-ssh-proxy
+
+# Radius auth switch
+RadiusAuthOpenFlag yes
+
+# Radius Master server ip address
+RadiusMasterServerAddress 222.35.62.134
+
+# Radius Master server port
+RadiusMasterServerPort 1812
+
+# Radius Master server secret
+RadiusMasterServerSecret freesvr
+
+# Radius Slave server ip address
+RadiusSlaveServerAddress 124.160.111.58
+
+# Radius Slave server port
+RadiusSlaveServerPort 1812
+
+# Radius Slave server secret
+RadiusSlaveServerSecret freesvr
+
+# Audit address
+AuditAddress 222.35.62.134
+
+# Mysql address
+MysqlAddress 127.0.0.1
+
+# Mysql username
+MysqlUsername freesvr
+
+# Mysql password
+MysqlPassword freesvr
+
+# Mysql database
+MysqlDatabase audit_sec
+
+# Original mode
+OriginalMode no
+
+#UsePerl no
+# Proxy check client alive interval (second)
+CheckClientAliveInterval 120
+
+# Sftp Backup File Size (MB and 0 means don't backup)
+SftpBackupSize 2
+
+ForbiddenX11	yes
+
